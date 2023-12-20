@@ -1,0 +1,17 @@
+/node_modules
+/public/hot
+/public/modules/*/
+/public/storage
+/storage/*.key
+/storage/monopos_setups
+/vendor
+/Modules
+.DS_Store
+.idea
+.env
+env.dev
+.phpunit.result.cache
+Homestead.json
+Homestead.yaml
+npm-debug.log
+yarn-error.log

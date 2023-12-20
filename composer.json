@@ -1,0 +1,23 @@
+{
+    "name": "monobill/monobill-php-sdk",
+    "description": "Official MonoBill PHP SDK",
+    "type": "library",
+    "keywords": ["monobill","sdk"],
+    "homepage": "https://github.com/Vnoxco/monobill-php-sdk",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Monobill\\MonobillPhpSdk\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "MonoBill",
+            "email": "contact@vnox.co",
+            "homepage": "https://monobill.com"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^7.5"
+    }
+}
