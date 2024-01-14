@@ -183,12 +183,12 @@ class MonoBillAPI
      * @param string $apiUrl
      * @param string $method
      * @param string $action
-     * @param array $formParams
+     * @param array $data
      * @param array $headers
      * @return mixed
      * @throws GuzzleException
      */
-    public function request(string $apiUrl, string $method, string $action, array $formParams = [], array $headers = []): mixed
+    public function request(string $apiUrl, string $method, string $action, array $data = [], array $headers = []): mixed
     {
         // Create a Guzzle HTTP client and perform the request
 
@@ -240,10 +240,10 @@ class MonoBillAPI
         } else {
             // Handle other types of requests
             if (strtolower($method) !== 'get') {
-                $options['form_params'] = $formParams;
+                $options['json'] = $data;
             } else {
-                if (count($formParams)) {
-                    $getQuery = '?' . http_build_query($formParams);
+                if (count($data)) {
+                    $getQuery = '?' . http_build_query($data);
                 }
             }
         }

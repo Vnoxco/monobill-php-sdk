@@ -1,6 +1,6 @@
 {
     "name": "monobill/monobill-php-sdk",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "Official MonoBill PHP SDK",
     "type": "library",
     "keywords": ["monobill","sdk"],
