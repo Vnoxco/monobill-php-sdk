@@ -96,7 +96,88 @@ class MonoBillAPI
         }
     }
 
-    // Similar methods for POST, PUT, PATCH, and DELETE requests...
+    /**
+     * @param string $action
+     * @param array $data
+     * @param array $headers
+     * @param bool $throw
+     * @return mixed
+     */
+    public function post(string $action, array $data, array $headers = [], bool $throw = true): mixed
+    {
+        // Perform a GET request
+        try {
+            return $this->request($this->apiURL, 'POST', $action, $data, $headers);
+        } catch (GuzzleException $e) {
+            if ($throw) {
+                throw $e;
+            } else {
+                return null;
+            }
+        }
+    }
+
+    /**
+     * @param string $action
+     * @param array $data
+     * @param array $headers
+     * @param bool $throw
+     * @return mixed
+     */
+    public function put(string $action, array $data, array $headers = [], bool $throw = true): mixed
+    {
+        // Perform a GET request
+        try {
+            return $this->request($this->apiURL, 'PUT', $action, $data, $headers);
+        } catch (GuzzleException $e) {
+            if ($throw) {
+                throw $e;
+            } else {
+                return null;
+            }
+        }
+    }
+
+    /**
+     * @param string $action
+     * @param array $data
+     * @param array $headers
+     * @param bool $throw
+     * @return mixed
+     */
+    public function patch(string $action, array $data, array $headers = [], bool $throw = true): mixed
+    {
+        // Perform a GET request
+        try {
+            return $this->request($this->apiURL, 'PATCH', $action, $data, $headers);
+        } catch (GuzzleException $e) {
+            if ($throw) {
+                throw $e;
+            } else {
+                return null;
+            }
+        }
+    }
+
+    /**
+     * @param string $action
+     * @param array $headers
+     * @param bool $throw
+     * @return mixed
+     */
+    public function delete(string $action, array $headers = [], bool $throw = true): mixed
+    {
+        // Perform a GET request
+        try {
+            return $this->request($this->apiURL, 'DELETE', $action, [], $headers);
+        } catch (GuzzleException $e) {
+            if ($throw) {
+                throw $e;
+            } else {
+                return null;
+            }
+        }
+    }
 
     /**
      * @param string $apiUrl
