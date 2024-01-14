@@ -192,6 +192,8 @@ class MonoBillAPI
     {
         // Create a Guzzle HTTP client and perform the request
 
+        $action = '/' . ltrim($action, '/');
+
         $allHeaders = [];
         $getQuery = '';
 
