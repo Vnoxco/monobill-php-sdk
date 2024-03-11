@@ -44,7 +44,7 @@ class MonoBillAPI
             return false;
         }
 
-        $computed_hmac = hash_hmac('sha256', $this->queryParams['app_id'] . ',' . $this->queryParams['access_token'] . ',' . $this->queryParams['store'] . ',' . $this->queryParams['store_id'], $this->clientSecret);
+        $computed_hmac = hash_hmac('sha256', $this->queryParams['app_id'] . ',' . $this->queryParams['access_token'] . ',' . $this->queryParams['store'] . ',' . $this->queryParams['store_id'] . ((isset($this->queryParams['plan'])) ? ',' . $this->queryParams['plan'] : ''),  $this->clientSecret);
 
         return hash_equals($this->queryParams['hmac'], $computed_hmac);
     }
@@ -56,7 +56,7 @@ class MonoBillAPI
             return false;
         }
 
-        $computed_hmac = hash_hmac('sha256', $this->queryParams['app_id'] . ',' . $this->queryParams['store'] . ',' . $this->queryParams['store_id'], $this->clientSecret);
+        $computed_hmac = hash_hmac('sha256', $this->queryParams['app_id'] . ',' . $this->queryParams['store'] . ',' . $this->queryParams['store_id'] . ((isset($this->queryParams['plan'])) ? ',' . $this->queryParams['plan'] : ''), $this->clientSecret);
 
         return hash_equals($this->queryParams['hmac'], $computed_hmac);
     }
