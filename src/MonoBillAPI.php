@@ -30,11 +30,11 @@ class MonoBillAPI
 
     public function getInstallURL()
     {
-        // Check if 'store_domain' is provided in query parameters
-        if (!isset($this->queryParams['store_domain'])) {
-            die('Provide store_domain');
+        // Check if 'store' is provided in query parameters
+        if (!isset($this->queryParams['store'])) {
+            die('Provide store');
         }
-        return 'https://' . $this->queryParams['store_domain'] . '/admin/oauth/authorize?client_id=' . $this->clientId . '&redirect=' . $this->callbackUrl . '&scopes=' . implode(',', $this->scopes);
+        return 'https://' . $this->queryParams['store'] . '/admin/oauth/authorize?client_id=' . $this->clientId . '&redirect=' . $this->callbackUrl . '&scopes=' . implode(',', $this->scopes);
     }
 
     public function validateInstallRequest()
