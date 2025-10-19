@@ -18,7 +18,7 @@ class Exists implements ValidationRule
 
     public function validate(string $attribute, mixed $value, Closure $fail): void
     {
-        $response = $this->api->post('/store/' . $this->api->storeId . '/validate/product/exists', ['value' => $value]);
+        $response = $this->api->post('/store/' . $this->api->storeId . '/validate/' . $this->validationObject . '/exists', ['value' => $value]);
 
         if(!isset($response['exists']) || !$response['exists']) {
             $fail($this->message ?? 'This doesn\'t exist.');
