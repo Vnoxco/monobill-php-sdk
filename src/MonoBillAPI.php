@@ -5,6 +5,7 @@ namespace Monobill\MonobillPhpSdk;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\BadResponseException;
 use GuzzleHttp\Exception\GuzzleException;
+use Monobill\MonobillPhpSdk\Validation\Exists;
 
 class MonoBillAPI
 {
@@ -16,7 +17,7 @@ class MonoBillAPI
     private $queryParams;
     private $callbackUrl;
     private $token;
-    private $storeId;
+    public $storeId;
 
     public function __construct(string $clientId, string $clientSecret, string $token = null, string $storeId = null, $endpoint = 'app')
     {
@@ -279,5 +280,19 @@ class MonoBillAPI
             $_SERVER['REMOTE_ADDR'] = $_SERVER["HTTP_X_CLIENT_REAL_IP"];
         }
         return $_SERVER['REMOTE_ADDR'];
+    }
+
+    /**
+     * @param $validationObject
+     * @param $validationType
+     * @param $customMessage
+     * @return Exists
+     */
+    public function validate($validationObject, $validationType, $customMessage = null) {
+        switch ($validationType) {
+            case 'exists':
+                return new Exists($validationObject, $this, $customMessage);
+                default;
+        }
     }
 }
