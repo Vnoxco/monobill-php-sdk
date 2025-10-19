@@ -281,18 +281,4 @@ class MonoBillAPI
         }
         return $_SERVER['REMOTE_ADDR'];
     }
-
-    /**
-     * @param $validationObject
-     * @param $validationType
-     * @param $customMessage
-     * @return Exists
-     */
-    public function validate($validationObject, $validationType, $customMessage = null) {
-        switch ($validationType) {
-            case 'exists':
-                return new Exists($validationObject, $this, $customMessage);
-                default;
-        }
-    }
 }
