@@ -5,11 +5,15 @@ namespace Monobill\MonobillPhpSdk;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\BadResponseException;
 use GuzzleHttp\Exception\GuzzleException;
+use Monobill\MonobillPhpSdk\Resources\AdministratorsResource;
+use Monobill\MonobillPhpSdk\Resources\OrdersResource;
+use Monobill\MonobillPhpSdk\Resources\ProductsResource;
+use Monobill\MonobillPhpSdk\Resources\WebhooksResource;
 use Monobill\MonobillPhpSdk\Validation\Exists;
 
 class MonoBillAPI
 {
-    private $apiURL = 'https://api.gomonobill.com/';
+    private $apiURL = 'https://admin.dev.monobill.com/';
 
     private $clientId;
     private $clientSecret;
@@ -281,4 +285,33 @@ class MonoBillAPI
         }
         return $_SERVER['REMOTE_ADDR'];
     }
+
+    public function administrators(): AdministratorsResource
+    {
+        return new AdministratorsResource($this);
+    }
+
+    public function webhooks(): WebhooksResource
+    {
+        return new WebhooksResource($this);
+    }
+
+    public function products(?int $productId = null): ProductsResource|array
+    {
+        $resource = new ProductsResource($this);
+        if ($productId) {
+            return $resource($productId);
+        }
+        return $resource;
+    }
+
+    public function orders(?int $orderId = null): OrdersResource|array
+    {
+        $resource = new OrdersResource($this);
+        if ($orderId) {
+            return $resource($orderId);
+        }
+        return $resource;
+    }
+
 }
