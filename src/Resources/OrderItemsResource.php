@@ -32,5 +32,11 @@ class OrderItemsResource extends StoreResource
         $endpoint = $itemId ? $this->buildPath((string)$itemId) : $this->path;
         return $this->api->put($endpoint, $data);
     }
+
+    public function updateMetaData(string|int|null $itemId = null, array $data = []): array
+    {
+        $endpoint = $itemId ? $this->buildPath((string)$itemId) : $this->path;
+        return $this->api->put($endpoint . '/meta-data', ['meta_data' => $data]);
+    }
 }
 

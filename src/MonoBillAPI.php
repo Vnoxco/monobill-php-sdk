@@ -6,6 +6,7 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Exception\BadResponseException;
 use GuzzleHttp\Exception\GuzzleException;
 use Monobill\MonobillPhpSdk\Resources\AdministratorsResource;
+use Monobill\MonobillPhpSdk\Resources\NotificationsResource;
 use Monobill\MonobillPhpSdk\Resources\OrdersResource;
 use Monobill\MonobillPhpSdk\Resources\ProductsResource;
 use Monobill\MonobillPhpSdk\Resources\WebhooksResource;
@@ -294,6 +295,11 @@ class MonoBillAPI
     public function webhooks(): WebhooksResource
     {
         return new WebhooksResource($this);
+    }
+
+    public function notifications(): NotificationsResource
+    {
+        return new NotificationsResource($this);
     }
 
     public function products(?int $productId = null): ProductsResource|array
