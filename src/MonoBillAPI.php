@@ -14,7 +14,7 @@ use Monobill\MonobillPhpSdk\Validation\Exists;
 
 class MonoBillAPI
 {
-    private $apiURL = 'https://admin.dev.monobill.com/';
+    private $apiURL = 'https://admin.monobill.com/';
 
     private $clientId;
     private $clientSecret;
