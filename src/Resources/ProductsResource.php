@@ -25,4 +25,20 @@ class ProductsResource extends StoreResource
     {
         return new MetaFieldsResource($this->api, $this->buildPath('meta-fields'));
     }
+
+    /**
+     * Create a product in the store catalog.
+     */
+    public function create(array $data): array
+    {
+        return parent::create($data);
+    }
+
+    /**
+     * Update a product (path must be set via __invoke first).
+     */
+    public function updateProduct(array $data): mixed
+    {
+        return $this->api->put($this->path, $data);
+    }
 }

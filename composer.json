@@ -1,6 +1,6 @@
 {
     "name": "monobill/monobill-php-sdk",
-    "version": "1.3.5",
+    "version": "1.3.6",
     "description": "Official MonoBill PHP SDK",
     "type": "library",
     "keywords": ["monobill","sdk"],
@@ -20,6 +20,6 @@
     ],
     "require": {
         "guzzlehttp/guzzle": "^7.5",
-        "laravel/framework": "^v12.0"
+        "laravel/framework": "^12.0|^13.0"
     }
 }
